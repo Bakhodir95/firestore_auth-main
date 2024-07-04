@@ -12,7 +12,7 @@ class ContactsScreen extends StatefulWidget {
 
 class _ContactsScreenState extends State<ContactsScreen> {
   final _usersController = UserController();
-  final _bottomBar = BottomnavigationWidget();
+  final _bottomBar = const BottomnavigationWidget();
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:firestore_auth/screens/contacts_screen.dart';
-import 'package:firestore_auth/screens/home_screen.dart';
 import 'package:firestore_auth/screens/chats_screen.dart';
 import 'package:flutter/material.dart';
 

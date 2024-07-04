@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firestore_auth/controllers/car_controller.dart';
 import 'package:firestore_auth/firebase_options.dart';
+import 'package:firestore_auth/screens/chats_screen.dart';
 import 'package:firestore_auth/screens/login_screen.dart';
 import 'package:firestore_auth/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
               if (snapshot.data == null || !snapshot.hasData) {
                 return const LoginScreen();
               }
-              return const SplashScreen();
+              return const ChatsScreen();
             }),
       );
     });
