@@ -1,7 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firestore_auth/models/quiz.dart';
-import 'package:firestore_auth/models/user.dart';
 
 class UserFirerbaseService {
   final _userCollection = FirebaseFirestore.instance.collection('users');
@@ -10,22 +7,16 @@ class UserFirerbaseService {
     yield* _userCollection.snapshots();
   }
 
-  void addUsers(Users user) {
-    _userCollection.add({
-      "message": user.message,
-      "name": user.name,
-    });
+  void addUser({
+    required String name,
+    required String email,
+    required String uid,
+  }) {
+    Map<String, dynamic> data = {
+      'user-name': name,
+      'user-email': email,
+      'user-uid': uid,
+    };
+    _userCollection.add(data);
   }
-
-  // void edidQuestion(Quiz quiz) {
-  //   _questionCollection.doc(quiz.id).update({
-  //     "question": quiz.question,
-  //     "answer": quiz.answer,
-  //     "variant": quiz.variant
-  //   });
-  // }
-
-  // void deleteQuestion(Quiz quiz) {
-  //   _questionCollection.doc(quiz.id).delete();
-  // }
 }

@@ -1,15 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Message {
-  String id;
-  String senderId;
-  String receiverId;
-  DateTime datetime;
-  String message;
+  final String id;
+  final String senderId;
+  final DateTime datetime;
+  final String message;
 
   Message({
     required this.id,
     required this.senderId,
-    required this.receiverId,
     required this.datetime,
     required this.message,
   });
+  factory Message.fromQuerySnapshot(QueryDocumentSnapshot query) {
+    return Message(
+      id: query.id,
+      senderId: query['sender-id'],
+      message: query['text'],
+      datetime: query['time-stamp'],
+    );
+  }
 }

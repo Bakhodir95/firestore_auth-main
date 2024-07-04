@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_auth/controllers/register_controller.dart';
-import 'package:firestore_auth/widgets/cars_list.dart';
-import 'package:firestore_auth/widgets/manage_cars.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: const CarsList(),
+      // body: const CarsList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
             context: context,
             builder: (ctx) {
-              return const ManageUsers();
+              return Container();
             },
           );
         },

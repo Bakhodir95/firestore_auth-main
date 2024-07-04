@@ -8,4 +8,16 @@ class UserController with ChangeNotifier {
   Stream<QuerySnapshot> get list async* {
     yield* _usersFirebaseService.getUsers();
   }
+
+  void addUser({
+    required String name,
+    required String email,
+    required uid,
+  }) {
+    _usersFirebaseService.addUser(
+      name: name,
+      email: email,
+      uid: uid,
+    );
+  }
 }
