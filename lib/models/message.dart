@@ -17,7 +17,7 @@ class Message {
       id: query.id,
       senderId: query['sender-id'],
       message: query['text'],
-      datetime: query['time-stamp'],
+      datetime: query['time-stamp'] ?? Timestamp.now(),
     );
   }
 }
