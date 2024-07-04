@@ -27,6 +27,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
 
   @override
   void initState() {
+    super.initState();
     _chatRoomId = SortedFunction.generateChatRoomId(
         user1Email: widget.email, user2Email: _currentUserEmail);
   }
@@ -74,7 +75,16 @@ class _ChatsScreenState extends State<ChatsScreen> {
                           ? MainAxisAlignment.end
                           : MainAxisAlignment.start,
                       children: [
-                        Text(message.message),
+                        Container(
+                            padding: EdgeInsetsDirectional.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(10),
+                                shape: BoxShape.rectangle),
+                            child: Text(
+                              message.message,
+                              style: TextStyle(fontSize: 25),
+                            )),
                       ],
                     );
                   },

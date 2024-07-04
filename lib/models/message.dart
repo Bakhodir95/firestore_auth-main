@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Message {
   final String id;
   final String senderId;
-  final DateTime datetime;
+  final Timestamp datetime;
   final String message;
 
   Message({

@@ -14,7 +14,9 @@ class _BottomnavigationWidgetState extends State<BottomnavigationWidget> {
 
   static final List<Widget> _screenOptions = [
     const ContactsScreen(),
-    const ChatsScreen(),
+    const ChatsScreen(
+      email: '',
+    ),
     const Text("More"),
   ];
 

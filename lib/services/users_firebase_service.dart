@@ -7,16 +7,16 @@ class UserFirerbaseService {
     yield* _userCollection.snapshots();
   }
 
-  void addUser({
+  addUser({
     required String name,
     required String email,
     required String uid,
-  }) {
+  }) async {
     Map<String, dynamic> data = {
       'user-name': name,
       'user-email': email,
       'user-uid': uid,
     };
-    _userCollection.add(data);
+    await _userCollection.add(data);
   }
 }

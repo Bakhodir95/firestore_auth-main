@@ -1,6 +1,5 @@
 import 'package:firestore_auth/controllers/register_controller.dart';
 import 'package:firestore_auth/screens/contacts_screen.dart';
-import 'package:firestore_auth/screens/quiz_screen.dart';
 import 'package:firestore_auth/screens/register_screen.dart';
 import 'package:firestore_auth/screens/reset_screen.dart';
 import 'package:flutter/material.dart';

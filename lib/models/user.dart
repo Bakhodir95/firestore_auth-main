@@ -15,8 +15,8 @@ class Users {
   factory Users.fromMap(QueryDocumentSnapshot query) {
     return Users(
       id: query.id,
-      name: query['user_name'],
-      uid: query['user_uid'],
+      name: query['user-name'],
+      uid: query['user-uid'],
       email: query['user-email'],
     );
   }

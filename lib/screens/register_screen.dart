@@ -46,17 +46,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   String? email;
   String? password;
+  String? name;
   submit() async {
     if (formkey.currentState!.validate()) {
       formkey.currentState!.save();
       try {
-        await registerController.register(email!, password!);
+        await registerController.register(
+          name!,
+          email!,
+          password!,
+        );
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (ctx) => const LoginScreen()));
       } catch (e) {
         print(e);
       }
     }
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (ctx) => const LoginScreen()));
   }
 
   @override
@@ -118,6 +123,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Enter Password")),
+                ),
+                const Gap(10),
+                TextFormField(
+                  onSaved: (newValue) {
+                    name = newValue;
+                  },
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), label: Text("Enter name")),
                 ),
                 const Gap(20),
                 FilledButton(

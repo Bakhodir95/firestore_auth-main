@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firestore_auth/controllers/car_controller.dart';
+import 'package:firestore_auth/controllers/users_controller.dart';
 import 'package:firestore_auth/firebase_options.dart';
-import 'package:firestore_auth/screens/chats_screen.dart';
+import 'package:firestore_auth/screens/contacts_screen.dart';
 import 'package:firestore_auth/screens/login_screen.dart';
-import 'package:firestore_auth/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(create: (context) {
-      return CarsController();
+      return UserController();
     }, builder: (context, child) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -36,7 +35,7 @@ class _MyAppState extends State<MyApp> {
               if (snapshot.data == null || !snapshot.hasData) {
                 return const LoginScreen();
               }
-              return const ChatsScreen();
+              return const ContactsScreen();
             }),
       );
     });

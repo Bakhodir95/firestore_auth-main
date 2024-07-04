@@ -1,5 +1,6 @@
 import 'package:firestore_auth/controllers/users_controller.dart';
 import 'package:firestore_auth/models/user.dart';
+import 'package:firestore_auth/screens/chats_screen.dart';
 import 'package:firestore_auth/widgets/bottomnavigation_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Conttact"),
+          title: const Text("Contact"),
           actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
         ),
         body: StreamBuilder(
@@ -45,11 +46,31 @@ class _ContactsScreenState extends State<ContactsScreen> {
                         final user = Users.fromMap(users[index]);
                         return Column(
                           children: [
-                            ListTile(
-                              title: Text(user.name),
-                              subtitle: Text(user.message),
-                              trailing: const CircleAvatar(
-                                radius: 25,
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.blue,
+                                ),
+                                child: ListTile(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (ctx) =>
+                                            ChatsScreen(email: user.email),
+                                      ),
+                                    );
+                                  },
+                                  title: Text(user.name),
+                                  subtitle: Text(user.id),
+                                  trailing: CircleAvatar(
+                                    radius: 25,
+                                    // Placeholder avatar setup
+                                    child: Text(user.name[0]),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
